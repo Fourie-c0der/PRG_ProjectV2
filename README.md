@@ -1,28 +1,23 @@
-# PRG381_Project
+# Student Wellness System — PRG381 Project
 
-# Student Wellness System (PRG381 Project)
+This is a Java-based web application developed as part of the PRG381 module at Belgium Campus ITversity. The system provides a simple platform for managing student wellness, including user registration and login functionality.
 
-This is a Java-based student wellness management system developed for the PRG381 module at Belgium Campus.
+---
 
 ## Technologies Used
 
-- **Java (JSP & Servlets)**
-- **PostgreSQL** (Database)
-- **JDBC** (Database Connectivity)
-- **Apache NetBeans** (IDE)
-- **Apache Tomcat** (Web Server)
-- **GitHub** (Version Control)
+- **Java** (JSP & Servlets)  
+- **PostgreSQL** — Database  
+- **JDBC** — Database Connectivity  
+- **Apache NetBeans** — IDE  
+- **Apache Tomcat** — Web Server  
+- **Git & GitHub** — Version Control  
 
-## Group Member Role (Member 4 - Database Engineer & Integration)
+---
 
-- Designed and created the `users` table with:
-  - `studentNumber`, `name`, `surname`, `email`, `phone`, `password`
-- Added `NOT NULL` and `UNIQUE` constraints
-- Created an SQL initialization script for teammates
-- Connected PostgreSQL to Java servlets using JDBC
-- Verified registration and login flow from frontend to backend
+## Project Structure
 
-## Folder Structure
+
 StudentWellnessSystem/
 ├── src/ # Java source code
 ├── web/ # JSP pages (register.jsp, login.jsp, dashboard.jsp)
@@ -30,19 +25,28 @@ StudentWellnessSystem/
 ├── build/ # Ignored build files
 ├── README.md # Project overview
 
-## How to Run
 
-1. Open in NetBeans
-2. Start Apache Tomcat
-3. Open `register.jsp` in browser
-4. Register a user, then log in via `login.jsp`
+---
+
+## ▶️ How to Run the Application
+
+1. Open the project in **NetBeans**
+2. Ensure **Apache Tomcat** is installed and running
+3. Deploy the project
+4. Open `register.jsp` in your browser
+5. Register a new user, then log in via `login.jsp`
+
+---
 
 ## SQL Initialization Script
 
-See `init_db.sql` (if provided) to create and populate the `users` table.
+If available, use `init_db.sql` to create and populate the `users` table in your PostgreSQL database.
 
-## Notes
+---
 
-- Follows MVC architecture
-- Passwords are hashed with SHA-256
-- Session-based login with redirect to dashboard
+## Additional Notes
+
+- Follows the **MVC architecture**
+- Passwords are securely hashed using **SHA-256**
+- Login sessions are managed using **HTTP sessions**
+- User is redirected to `dashboard.jsp` upon successful login
