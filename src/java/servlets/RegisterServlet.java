@@ -41,20 +41,27 @@ public class RegisterServlet extends HttpServlet {
             check.setString(1, student.getEmail());
             ResultSet rs = check.executeQuery();
 
-            if (rs.next()) {
-                out.println("<h3>Email already exists!</h3>");
-            } else {
-                PreparedStatement ps = conn.prepareStatement(
-                        "INSERT INTO \"users\"(\"student_number\", name, surname, email, phone, password) VALUES (?, ?, ?, ?, ?, ?)");
-                ps.setString(1, student.getStudentNumber());
-                ps.setString(2, student.getName());
-                ps.setString(3, student.getSurname());
-                ps.setString(4, student.getEmail());
-                ps.setString(5, student.getPhone());
-                ps.setString(6, hashedPassword);
-                ps.executeUpdate();
-                out.println("<h3>Registration successful!</h3>");
-            }
+           if (rs.next()) {
+    out.println("<h3>Email already exists!</h3>");
+} else {
+    PreparedStatement ps = conn.prepareStatement(
+            "INSERT INTO \"users\"(\"student_number\", name, surname, email, phone, password) VALUES (?, ?, ?, ?, ?, ?)");
+    ps.setString(1, student.getStudentNumber());
+    ps.setString(2, student.getName());
+    ps.setString(3, student.getSurname());
+    ps.setString(4, student.getEmail());
+    ps.setString(5, student.getPhone());
+    ps.setString(6, hashedPassword);
+    ps.executeUpdate();
+
+    // Show message briefly, then redirect
+    out.println("<html><body>");
+    out.println("<h3>Registration successful!</h3>");
+    out.println("<script>");
+    out.println("setTimeout(function(){ window.location.href = 'dashboard.jsp'; }, 2000);"); // 2-second delay
+    out.println("</script>");
+    out.println("</body></html>");
+}
 
         } catch (Exception e) {
             out.println("<h3>Error: " + e.getMessage() + "</h3>");
