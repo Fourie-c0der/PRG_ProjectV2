@@ -28,7 +28,7 @@ StudentWellnessSystem/
 
 ---
 
-## ▶️ How to Run the Application
+## How to Run the Application
 
 1. Open the project in **NetBeans**
 2. Ensure **Apache Tomcat** is installed and running
